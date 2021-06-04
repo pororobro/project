@@ -1,6 +1,14 @@
 import React from 'react'
 import { BrowserRouter as Router, Link } from "react-router-dom"
 import styled from 'styled-components';
+import Counter from './counter/Counter' 
+import Login from './user/Login'
+import SignUp from './user/SignUp'
+import UserDetail from './user/UserDetail'
+import Useredit from './user/Useredit'
+import UserList from './user/UserList'
+
+
 
 const App = () => {
   return (<Container>
@@ -10,9 +18,10 @@ const App = () => {
       <Link to="/">Home</Link><br/>
       <Link to="/">Blog</Link><br/>
       <Link to="/">About Me</Link><br/>
-      <Link to="">Go to Google</Link><br/>
+      <Link to="/">Go to Google</Link><br/>
     </Router>
   </nav>
+ 
   <h1>첫번째 크기 헤드라인</h1>
   <h2>두번째 크기 헤드라인</h2>
   <h3>세번째 크기 헤드라인</h3>
