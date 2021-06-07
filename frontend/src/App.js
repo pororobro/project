@@ -5,7 +5,7 @@ import Counter from './counter/Counter'
 import Login from './user/Login'
 import SignUp from './user/SignUp'
 import UserDetail from './user/UserDetail'
-import Useredit from './user/Useredit'
+import UserEdit from './user/UserEdit'
 import UserList from './user/UserList'
 
 
