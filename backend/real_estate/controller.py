@@ -4,19 +4,19 @@ from real_estate.housing import Housing
 class Controller(object):
     dataset: object = Dataset()
     housing: object = Housing()
-    def preprocess(self, KBhousing):
+    def preprocess(self, housing):
         housing = self.housing
         this = self.dataset
-        this.KBhousing = housing.new_model(KBhousing)
+        this.housing = housing.new_model(housing)
         self.print_this(this)
         return this
     @staticmethod
     def print_this(this):
         print('*' * 100)
-        print(f'1. exel type is {type(this.KBhousing)}')
-        print(f'2. exel colums is \n{this.KBhousing.columns}')
-        print(f'3. exel TOP is \n{this.KBhousing.head()}')
-        print(f'4. exel number of null is \n{this.KBhousing.isnull().sum()}')
+        print(f'1. exel type is {type(this.housing)}')
+        print(f'2. exel colums is \n{this.housing.columns}')
+        print(f'3. exel TOP is \n{this.housing.head()}')
+        print(f'4. exel number of null is \n{this.housing.isnull().sum()}')
     @staticmethod
     def main():
         while 1:
