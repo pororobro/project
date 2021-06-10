@@ -78,6 +78,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'rootroot',
         'USER': 'root',
+
+
         'PASSWORD':'root3',
         'HOST': '', #공백으로 냅두면 default localhost
         'PORT': '' #공백으로 냅두면 default 3306

@@ -1,25 +1,28 @@
-from common.models import Models
+import json
+
 import pandas as pd
+from common.abstracts import PrinterBase, ReaderBase
 
-class Housing(object):
+class Printer(PrinterBase):
 
-    models = Models()
-
-    def new_model(self, payload):
-        this = self.models
-        this.context = './data/'
-        this.fname = payload
-        return pd.read_csv(this.context + this.fname)
-
-    def new_model_excel(self, payload):
-        this = self.models
-        this.context = './data/'
-        this.fname = payload
-        return pd.read_excel(this.context + this.fname, sheet_name='YainSoft_Excel')
-
-    def print_this(this):
+    def dframe(self, this):
         print('*' * 100)
-        print(f'1. exel type is {type(this.cctv_in_seoul)}')
-        print(f'2. exel colums is \n{this.cctv_in_seoul.columns}')
-        print(f'3. exel TOP is \n{this.cctv_in_seoul.head()}')
-        print(f'4. exel number of null is \n{this.cctv_in_seoul.isnull().sum()}')
+        print(f'1. Target type \n {type(this)} ')
+        print(f'2. Target column \n {this.columns} ')
+        print(f'3. Target 상위 1개 행\n {this.head()} ')
+        print(f'4. Target null 의 갯수\n {this.isnull().sum()}개')
+        print('*' * 100)
+
+class Reader(ReaderBase):
+
+    def new_file(self, file) -> str:
+        return file.context + file.fname
+
+    def csv(self, file) -> object:
+        return pd.read_csv(f'{self.new_file(file)}.csv', encoding='UTF-8', thousands=',')
+
+    def xls(self, file, header, usecols) -> object:
+        return pd.read_excel(f'{self.new_file(file)}.xls', encoding='UTF-8', header=header, usecols=usecols)
+
+    def json(self, file) -> object:
+        return json.load(open(f'{self.new_file(file)}.json', encoding='UTF-8'))

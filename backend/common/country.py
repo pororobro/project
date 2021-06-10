@@ -1,26 +1,23 @@
-class Country(object):
-    """super class"""
 
-    name = '국가명'
-    population = ''
-    capital = ''
+class Country(object):
+    name = 'Country Name'
+    population = 'Population'
+    capital = 'Capital'
 
     def show(self):
-        print('국가 클래스의 메소드입니다.')
+        print('Country Class Method')
 
 
 class Korea(Country):
-    """sub class"""
-
-    def __init__(self,name):
-        self.name = name
 
     def show_name(self):
-        print('국가 이름은 : ', self.name)
+        print(f'Country Name is {self.name}')
 
-def execute():
+def main():
     k = Korea()
-    k.show
-
+    k.name = 'KOREA'
+    k.show_name()
 
 main()
+
+
